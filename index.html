@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">React Not Rendered</div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script>
+      const Project = (props) => {
+        return React.createElement('div', {}, [
+          React.createElement('h1', {}, props.title),
+          React.createElement('p', {}, props.description),
+        ]);
+      };
+
+      const App = () => {
+        return React.createElement('div', {}, [
+          React.createElement('p', {}, 'React is rendered!!'),
+          React.createElement('hr', {}),
+          React.createElement(Project, {
+            title: 'pure-react',
+            description: 'description_1',
+          }),
+          React.createElement(Project, {
+            title: 'create-react-app',
+            description: 'description_2',
+          }),
+        ]);
+      };
+
+      ReactDOM.render(
+        React.createElement(App),
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>
